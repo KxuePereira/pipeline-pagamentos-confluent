@@ -1,0 +1,19 @@
+# segredos e estado gerado pelo setup.sh (IDs, chaves de API, config do conector renderizada)
+.env
+.env.*
+!.env.example
+.state/
+*.secret
+*.pem
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# SO / editores
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

@@ -1,0 +1,98 @@
+{
+  "type": "record",
+  "name": "Transaction",
+  "namespace": "com.bootcamp.payments",
+  "doc": "Contrato canônico de uma transação de cartão (evento de pagamento).",
+  "fields": [
+    {
+      "name": "transaction_id",
+      "type": "long",
+      "doc": "Identificador único da transação"
+    },
+    {
+      "name": "card_id",
+      "type": "int",
+      "doc": "Cartão usado",
+      "confluent:tags": [
+        "PCI"
+      ]
+    },
+    {
+      "name": "account_id",
+      "type": "int"
+    },
+    {
+      "name": "customer_id",
+      "type": [
+        "null",
+        "int"
+      ],
+      "default": null,
+      "confluent:tags": [
+        "PII"
+      ]
+    },
+    {
+      "name": "merchant_id",
+      "type": "int"
+    },
+    {
+      "name": "amount",
+      "type": {
+        "type": "bytes",
+        "logicalType": "decimal",
+        "precision": 15,
+        "scale": 2
+      },
+      "doc": "Valor em reais. Dinheiro é decimal, nunca float."
+    },
+    {
+      "name": "currency",
+      "type": "string",
+      "default": "BRL"
+    },
+    {
+      "name": "channel",
+      "type": {
+        "type": "enum",
+        "name": "Channel",
+        "symbols": [
+          "POS",
+          "ECOMMERCE",
+          "CONTACTLESS"
+        ]
+      }
+    },
+    {
+      "name": "status",
+      "type": {
+        "type": "enum",
+        "name": "Status",
+        "symbols": [
+          "APPROVED",
+          "DECLINED"
+        ]
+      }
+    },
+    {
+      "name": "pan_last4",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null,
+      "doc": "Só os 4 últimos dígitos",
+      "confluent:tags": [
+        "PCI"
+      ]
+    },
+    {
+      "name": "created_at",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Hora do evento (UTC)"
+    }
+  ]
+}

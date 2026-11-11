@@ -1,0 +1,6 @@
+# Alertas esperados no seed (seed=42) — gerado por gen_seed.py
+RULE_VELOCITY   card_id=73 transaction_ids=[1390, 1391, 1393]
+RULE_VELOCITY   card_id=96 transaction_ids=[583, 584, 585]
+RULE_HIGH_SPEND card_id=80 window_start=2026-11-07 02:55 total=520.98 limite=1000.00 transaction_ids=[1765, 1767]
+RULE_HIGH_SPEND card_id=253 window_start=2026-11-06 14:10 total=12000.00 limite=20000.00 transaction_ids=[1613, 1614]
+RULE_HIGH_SPEND card_id=255 window_start=2026-11-01 02:00 total=1149.97 limite=2000.00 transaction_ids=[25, 27]
